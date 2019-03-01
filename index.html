@@ -5,7 +5,28 @@
     </head>
     <body>
         <div id="app">
+            <h1 v-bind:title="loadingAt">
+                {{ welcome }}
+            </h1>
             {{ message }}
+            <p>{{ name }}</p>
+            <h2 v-if="show">Tu me vois ? {{ show }}</h2>
+
+            <ol>
+                <brand 
+                    v-for="brand in brands"
+                    :brand="brand"
+                    :key="brand.name">
+                </brand>
+
+                <h3>{{ count }}</h3>
+
+                <button v-on:click="inc">Inc</button>
+                <button @click="dec">Dec</button>
+
+                <h3>Hello {{ name }}.</h3>
+                <input name="name" v-model="name"/>
+            </ol>
         </div>
 
         <script src="app.js"></script>
